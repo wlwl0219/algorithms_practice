@@ -10,6 +10,7 @@ function flatten(array) {
   return array.flat();
 }
 
+// test start
 // 1. 항상 배열을 리턴해야합니다.
 function test() {
   let result = flatten([]);
