@@ -1,6 +1,6 @@
-// array의 각 element 중 divisor로 나누어 떨어지는 값을 
+// array의 각 element 중 divisor로 나누어 떨어지는 값을
 // 오름차순으로 정렬한 배열을 반환하는 함수, solution을 작성해주세요.
-// divisor로 나누어 떨어지는 element가 하나도 없다면 
+// divisor로 나누어 떨어지는 element가 하나도 없다면
 // 배열에 -1을 담아 반환하세요.
 
 // Precautions
@@ -15,17 +15,14 @@
 // 임의의 배열에 그 요소를 넣어준다.
 // 나누어진 요소가 하나도 없다면
 // [-1]을 반환한다.
-// 임의의 배열을 오름차순으로 정렬하여 반환한다.
-
+// 있다면 임의의 배열을 오름차순으로 정렬하여 반환한다.
 function solution(arr, divisor) {
   let result = [];
-
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % divisor === 0) {
       result.push(arr[i]);
     }
   }
-
   if (result.length === 0) {
     result.push(-1);
     return result;
@@ -34,4 +31,9 @@ function solution(arr, divisor) {
       return a - b;
     });
   }
+}
+
+function solution(arr, divisor) {
+  let result = arr.filter((ele) => ele % divisor === 0);
+  return result.length === 0 ? [-1] : result.sort((a, b) => a - b);
 }
