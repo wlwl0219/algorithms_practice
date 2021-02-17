@@ -17,7 +17,7 @@
 // console.log(output); // --> 3wggoppo4p
 
 // solution 1
-function compressString(str) {
+const compressString = str => {
   let before = str[0];
   let count = 1;
   let result = "";
@@ -37,7 +37,9 @@ function compressString(str) {
     }
   }
   return result;
-}
+};
+
+module.exports = compressString;
 
 // test start
 // 1. string 타입을 리턴해야 합니다
