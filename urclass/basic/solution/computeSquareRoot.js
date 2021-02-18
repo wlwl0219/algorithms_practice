@@ -27,7 +27,7 @@
 // 해당 식을 이용해 문제를 풀어도 좋습니다.
 
 // solution 1
-function computeSquareRoot(num) {
+const computeSquareRoot = num => {
   const diffs = [1, 0.1, 0.01, 0.001];
   let base = 1;
   for (let i = 0; i < diffs.length; i++) {
@@ -41,43 +41,6 @@ function computeSquareRoot(num) {
     }
   }
   return Number(base.toFixed(2));
-}
+};
 
-// test start
-// 1. Math.sqrt 사용은 금지됩니다
-function test() {
-  computeSquareRoot(hiddenInput[0]);
-  computeSquareRoot(hiddenInput[1]);
-  computeSquareRoot(hiddenInput[2]);
-  expect(Math.sqrt.called).to.be.equal(false);
-}
-
-// 2. number 타입을 리턴해야 합니다
-function test() {
-  expect(typeof computeSquareRoot(4)).to.be.equal("number");
-}
-
-// 3. 4을(를) 입력받은 경우, 2을(를) 리턴해야 합니다
-function test() {
-  expect(computeSquareRoot(4)).to.be.equal(2);
-}
-
-// 4. 9을(를) 입력받은 경우, 3을(를) 리턴해야 합니다
-function test() {
-  expect(computeSquareRoot(9)).to.be.equal(3);
-}
-
-// 5. 5을(를) 입력받은 경우, 2.24을(를) 리턴해야 합니다
-function test() {
-  expect(computeSquareRoot(5)).to.be.equal(2.24);
-}
-
-// 6. 6을(를) 입력받은 경우, 2.45을(를) 리턴해야 합니다
-function test() {
-  expect(computeSquareRoot(6)).to.be.equal(2.45);
-}
-
-// 7. 144을(를) 입력받은 경우, 12을(를) 리턴해야 합니다
-function test() {
-  expect(computeSquareRoot(144)).to.be.equal(12);
-}
+module.exports = computeSquareRoot;
