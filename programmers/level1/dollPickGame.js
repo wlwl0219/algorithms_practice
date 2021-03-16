@@ -50,3 +50,37 @@ function solution(board, moves) {
   }
   return count;
 }
+
+// solution 2
+// moves배열에 들어있는 원소(인형의 위치) 하나씩 뽑아
+// board의 그 자리가 0으로 바뀌고 그 인형을 반환하는 함수를 실행한다.
+// 그렇게 뽑은 인형이 임의의 배열의 마지막 원소와 같다면
+// pop으로 제거하고 제거한 인형의 갯수를 세는 count에 2를 더한다.
+// 마지막 원소와 같지 않다면 뽑은 인형을 임의의 배열에 푸쉬한다.
+//moves배열을 모두 돌았다면 count를 반환한다.
+function solution(board, moves) {
+  function pickDoll(board, num) {
+    for (let i = 0; i < board.length; i++) {
+      if (board[i][num - 1]) {
+        let doll = board[i][num - 1];
+        board[i][num - 1] = 0;
+        return doll;
+      }
+    }
+  }
+
+  let count = 0;
+  let dollList = [];
+  moves.forEach(ele => {
+    const doll = pickDoll(board, ele);
+    if (doll) {
+      if (dollList[dollList.length - 1] === doll) {
+        dollList.pop();
+        count += 2;
+      } else {
+        dollList.push(doll);
+      }
+    }
+  });
+  return count;
+}
