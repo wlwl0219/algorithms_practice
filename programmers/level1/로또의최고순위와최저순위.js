@@ -50,6 +50,8 @@ function solution(lottos, win_nums) {
 
 // solution 2
 // 로또번호 중에 당첨번호와 0의 갯수를 각각 구한다.
+// 순위를 담은 배열에서 최소, 최대에 해당하는 순위만
+// 다시 배열에 담아 반환한다.
 function solution(lottos, win_nums) {
     let rank = [6, 6, 5, 4, 3, 2, 1]
     let min = lottos.filter(ele => win_nums.includes(ele)).length
